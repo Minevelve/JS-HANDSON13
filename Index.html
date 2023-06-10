@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .box{
+        margin: 10px;
+        width: 100px;
+        height: 100px;
+        background-color: blanchedalmond;
+    }
+    .Parent{
+        display: flex;
+        gap: 10px;
+
+    }
+    .child{
+        width: 110px;
+        height: 110px;
+        border: 1px solid blue;
+    }
+    table , th , td{
+        border: 1px solid black;
+    }
+
+
+</style>
+<body>
+    <h5>Q.1 Write the code to access element which is having id as "text"</h5>
+    <p id="text">Hello World</p>
+    <script>
+                var a = document.getElementById("text");
+                var b = a.innerHTML("Hello World");
+                console.log(b);
+    </script>
+
+    <h5>Q.2 Write the code to access element which is having tag as "h1"</h5>
+    <h1>Hello World.</h1>
+    <script>
+        var a = document.getElementsByTagName("h1");
+        var b = a[0].innerHTML("Hello World");
+        console.log(b);
+    </script>
+
+
+
+<h5>Q.3 Write the code to access element which is having class as "box"</h5>
+<div class="box"></div>
+<script>
+       document.createElement("div");
+</script>
+
+<h5>Q.4 Change the heading from ""Hello"" to ""Hello World"" using DOM functions"</h5>
+<h1 Class="hello">
+    Hello 
+</h1>
+<script>
+    let aabb = document.getElementsByClassName("hello");
+    console.log(aabb);
+    aabb[0].addEventListener("click" , () =>
+    {
+     aabb[0].innerHTML = "Hello World ";
+    });
+ 
+</script>
+
+<h5>Q.5 Create an HTML page having content as Hello world and a button named Replace Text. When user will click on this button page content should be changed to "Welcome to Elevation academy" .</h5>
+<button id="btn" onclick="btn()">Replace Text</button>
+<p id="paragraph"></p>
+<script>
+   
+    let count = 0;
+    function btn()
+    {
+      if(count == 0)
+      {
+        document.getElementById("paragraph").innerHTML = "Welcome to Elevation academy";
+        count = 1;
+      }
+      else{
+        document.getElementById("paragraph").innerHTML = "Hello World";
+        count = 0;
+      }
+    }
+</script>
+
+<h5>Q.6 Add one style attribute and give text color as red and id attribute and give the id value as ""heading"" in the above given h1 tag using DOM functions"</h5>
+<h1 id="heading1">Hello</h1>
+<script>
+        var ans =  document.getElementById("heading1");
+        var ans1 =  ans.innerHTML = "Hello World";
+        var color = ans.style.color = "Red";
+        console.log(ans1);
+</script>
+
+<h5>Q.7 Create three cards on HTML page and arrange them using flex property in row or horizontal direction and also create button at the bottom named "Change Flex direction". When user clicks on this button, the cards arrangement should be changed to vertical direction.</h5>
+<div class="Parent">
+    <div class="child">1</div>
+    <div class="child">2</div>
+    <div class="child">3</div>
+</div>
+<button  onclick="ChangeDreiction()">Change Direction</button>
+<script>
+    let  Parent = document.querySelector(".Parent");
+
+    let  Count = true;
+    function ChangeDreiction(){
+        
+        if(Count)
+        {
+            Parent.style.display = 'block';
+            Count = false;
+        }
+        else{
+            Parent.style.display = 'flex';
+            Count = true;  
+            }
+        }
+
+
+
+</script>
+<h5>Q.8 Write code to implement timer clock using JS -- display HH:MM:SS -- the time should keep updating every second</h5>
+<h1 id="StartClock">Start Clock</h1>
+<script>
+         let display = document.getElementById("StartClock"); 
+
+         display.addEventListener("click" ,() =>
+         {
+            function StartClock(){
+                let time =  new Date();
+
+                let hr = time.getHours();
+                let min = time.getMinutes();
+                let sec = time.getSeconds();
+                let AMPM = "AM"
+
+                if(hr > 12)
+                {
+                    hr -= 12;
+                    AMPM = "PM"    
+                }
+
+
+                // console.log(`${hr} : ${min} : ${sec}`);
+
+                display.innerHTML = `${hr} : ${min} : ${sec} ${AMPM}`;
+            }
+
+
+        setInterval(() => {
+            StartClock();
+      } , 1000)
+        
+           
+});
+</script>
+
+<h5>Q.9 What the difference between window vs document</h5>
+<table>
+ <thead>
+    <tr>
+        <th>S.No.</th>
+        <th>Window</th>
+        <th>Document</th>
+    </tr>
+</thead>
+
+<tbody>
+    <tr>
+        <td>1.</td>
+        <td>The window object represents a window/tab containing a DOM document where as document object is property of window object that points to the DOM document loaded in that window.</td>
+        <td>Each HTML document that gets loaded into a window becomes a document object. The document contains the contents of the page.</td>
+    </tr>
+     
+    <tr>
+        <td>2.</td>
+        <td>The window object represents a window/tab containing a DOM document where as document object is property of window object that points to the DOM document loaded in that window.</td>
+        <td>Each HTML document that gets loaded into a window becomes a document object. The document contains the contents of the page.</td>
+    </tr>
+
+
+</tbody>
+
+
+</table>
+
+</body>
+</html>
